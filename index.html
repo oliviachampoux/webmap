@@ -1,69 +1,28 @@
-<!-- 1. Inclure Mapbox -->
-<link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
-<script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
-
-<!-- 2. Styles -->
-<style>
-  #map {
-    width: 100%;
-    height: 500px;
-  }
-
-  .map-legend {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    background: white;
-    padding: 10px;
-    font-size: 13px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.3);
-  }
-
-  .legend-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 6px;
-  }
-
-  .legend-color {
-    width: 16px;
-    height: 16px;
-    margin-right: 8px;
-    display: inline-block;
-  }
-
-  .color-parc { background-color: #76c893; }
-  .color-eau { background-color: #56c4e0; }
-  .color-industriel { background-color: #b0b0b0; }
-</style>
-
-<!-- 3. Carte + Légende -->
-<div style="position: relative;">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Carte Mapbox - New York</title>
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet" />
+  <style>
+    body { margin: 0; padding: 0; }
+    #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+  </style>
+</head>
+<body>
   <div id="map"></div>
 
-  <div class="map-legend">
-    <div class="legend-item"><span class="legend-color color-parc"></span> Parcs</div>
-    <div class="legend-item"><span class="legend-color color-eau"></span> Plans d’eau</div>
-    <div class="legend-item"><span class="legend-color color-industriel"></span> Zones industrielles</div>
-  </div>
-</div>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1Ijoib2xpdmlhY2hweCIsImEiOiJja2dud3NlZXUweHkwMnJyeG53OTRsejUwIn0.x3V15sR7QM63wjr91oBh6Q';
 
-<!-- 4. JS -->
-<script>
-  mapboxgl.accessToken = 'pk.eyJ1Ijoib2xpdmlhY2hweCIsImEiOiJja2dud3NlZXUweHkwMnJyeG53OTRsejUwIn0.x3V15sR7QM63wjr91oBh6Q';
-
-  const map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/oliviachpx/cmf54ebch00ds01se2ykk87jq', // Ou ton propre style
-    center: [2.3522, 48.8566], // Paris
-    zoom: 11
-  });
-
-  // Exemple d’ajout de couche personnalisée (optionnel)
-  map.on('load', () => {
-    // Ici tu peux ajouter des sources et couches si nécessaire
-  });
-</script>
-
-
+    const map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/oliviachpx/cmf54ebch00ds01se2ykk87jq', // Ton style personnalisé
+      center: [-74.0060, 40.7128], // Coordonnées de New York
+      zoom: 12
+    });
+  </script>
+</body>
+</html>
