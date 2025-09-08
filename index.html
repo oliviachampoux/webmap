@@ -1,9 +1,37 @@
-<iframe 
-  width="100%" 
-  height="100%" 
-  src="https://api.mapbox.com/styles/v1/oliviachpx/cmf54ebch00ds01se2ykk87jq.html?title=false&access_token=pk.eyJ1Ijoib2xpdmlhY2hweCIsImEiOiJja2dudzdleHYwNHpqMnFudnU2a3ZuOXlwIn0.nkeRTjH5cnbpFHaFSLQd6A&zoomwheel=false#10/44.85/6.35" 
-  title="Biodiversité observée au Parc National des Écrins en 2024" 
-  style="border:none;">
-</iframe>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Biodiversité Parc des Écrins</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+    h1 {
+      text-align: center;
+      margin: 20px 0;
+      font-size: 24px;
+    }
+    .map-container {
+      width: 100%;
+      height: 90vh; /* Ajuste la hauteur selon ton besoin */
+    }
+  </style>
+</head>
+<body>
 
+  <h1>Biodiversité observée au Parc National des Écrins en 2024</h1>
 
+  <div class="map-container">
+    <iframe 
+      width="100%" 
+      height="100%" 
+      src="https://api.mapbox.com/styles/v1/oliviachpx/cmf54ebch00ds01se2ykk87jq.html?title=false&access_token=pk.eyJ1Ijoib2xpdmlhY2hweCIsImEiOiJja2dudzdleHYwNHpqMnFudnU2a3ZuOXlwIn0.nkeRTjH5cnbpFHaFSLQd6A&zoomwheel=false#10/44.85/6.35" 
+      title="Carte Parc des Écrins" 
+      style="border:none;">
+    </iframe>
+  </div>
+
+</body>
+</html>
