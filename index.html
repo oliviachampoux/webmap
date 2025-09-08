@@ -5,11 +5,33 @@
   <title>Biodiversité Parc des Écrins</title>
   <style>
     body { margin: 0; font-family: sans-serif; }
-    h1 { text-align: center; margin: 20px 0; font-size: 24px; }
-    .map-container { width: 100%; height: 90vh; position: relative; }
-    iframe { width: 100%; height: 100%; border: none; }
 
-    /* Légende */
+    h1 {
+      text-align: center;
+      margin: 20px 0 5px 0;
+      font-size: 24px;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 15px;
+      font-style: italic;
+    }
+
+    .map-container {
+      width: 100%;
+      height: 90vh;
+      position: relative;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
     .legend {
       position: absolute;
       bottom: 20px;
@@ -42,7 +64,6 @@
       border: 1px solid #ccc;
     }
 
-    /* Couleurs par classes (modifiable selon ta palette) */
     .obs-1    { background: #f0f921; }
     .obs-2    { background: #fdc926; }
     .obs-5    { background: #fa9f3b; }
@@ -58,6 +79,7 @@
 <body>
 
   <h1>Biodiversité observée au Parc National des Écrins en 2024</h1>
+  <div class="subtitle">Observed biodiversity in Écrins National Park in 2024</div>
 
   <div class="map-container">
     <iframe
@@ -66,7 +88,7 @@
     </iframe>
 
     <div class="legend">
-      <div class="legend-title">Nombre d'observations</div>
+      <div class="legend-title">Nombre d'observations/Number of observations</div>
       <div class="legend-item"><div class="legend-color obs-1"></div> 1-2</div>
       <div class="legend-item"><div class="legend-color obs-2"></div> 2-5</div>
       <div class="legend-item"><div class="legend-color obs-5"></div> 5-10</div>
