@@ -4,38 +4,28 @@
   <meta charset="UTF-8">
   <title>Biodiversité Parc des Écrins</title>
   <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-    }
+    body { margin: 0; font-family: sans-serif; }
+    h1 { text-align: center; margin: 20px 0; font-size: 24px; }
+    .map-container { width: 100%; height: 90vh; position: relative; }
+    iframe { width: 100%; height: 100%; border: none; }
 
-    h1 {
-      text-align: center;
-      margin: 20px 0;
-      font-size: 24px;
-    }
-
-    .map-container {
-      width: 100%;
-      height: 90vh;
-      position: relative;
-    }
-
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
+    /* Légende */
     .legend {
       position: absolute;
       bottom: 20px;
       right: 20px;
-      background: rgba(255, 255, 255, 0.9);
-      padding: 10px 15px;
+      background: rgba(255,255,255,0.95);
+      padding: 15px;
       border-radius: 6px;
       font-size: 14px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      max-width: 200px;
+    }
+
+    .legend-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 15px;
     }
 
     .legend-item {
@@ -45,15 +35,24 @@
     }
 
     .legend-color {
-      width: 16px;
+      width: 20px;
       height: 16px;
-      margin-right: 8px;
+      margin-right: 10px;
       border-radius: 3px;
+      border: 1px solid #ccc;
     }
 
-    .legend-species { background: #1f78b4; }
-    .legend-zone { background: #33a02c; }
-    .legend-observation { background: #e31a1c; }
+    /* Couleurs par classes (modifiable selon ta palette) */
+    .obs-1    { background: #f0f921; }
+    .obs-2    { background: #ccece6; }
+    .obs-5    { background: #99d8c9; }
+    .obs-10   { background: #66c2a4; }
+    .obs-15   { background: #41ae76; }
+    .obs-20   { background: #238b45; }
+    .obs-30   { background: #006d2c; }
+    .obs-40   { background: #00441b; }
+    .obs-50   { background: #08306b; }
+    .obs-80   { background: #041f4a; color: white; }
   </style>
 </head>
 <body>
@@ -61,28 +60,26 @@
   <h1>Biodiversité observée au Parc National des Écrins en 2024</h1>
 
   <div class="map-container">
-    <iframe 
-      src="https://api.mapbox.com/styles/v1/oliviachpx/cmf54ebch00ds01se2ykk87jq.html?title=false&access_token=pk.eyJ1Ijoib2xpdmlhY2hweCIsImEiOiJja2dudzdleHYwNHpqMnFudnU2a3ZuOXlwIn0.nkeRTjH5cnbpFHaFSLQd6A&zoomwheel=false#10/44.85/6.35" 
+    <iframe
+      src="https://api.mapbox.com/styles/v1/oliviachpx/cmf54ebch00ds01se2ykk87jq.html?title=false&access_token=pk.eyJ1Ijoib2xpdmlhY2hweCIsImEiOiJja2dudzdleHYwNHpqMnFudnU2a3ZuOXlwIn0.nkeRTjH5cnbpFHaFSLQd6A&zoomwheel=false#10/44.85/6.35"
       title="Carte Parc des Écrins">
     </iframe>
 
     <div class="legend">
-      <div class="legend-item">
-        <div class="legend-color legend-species"></div>
-        Espèces observées
-      </div>
-      <div class="legend-item">
-        <div class="legend-color legend-zone"></div>
-        Zones protégées
-      </div>
-      <div class="legend-item">
-        <div class="legend-color legend-observation"></div>
-        Sites d'observation
-      </div>
+      <div class="legend-title">Nombre d'observations</div>
+      <div class="legend-item"><div class="legend-color obs-1"></div> 1-2</div>
+      <div class="legend-item"><div class="legend-color obs-2"></div> 2-5</div>
+      <div class="legend-item"><div class="legend-color obs-5"></div> 5-10</div>
+      <div class="legend-item"><div class="legend-color obs-10"></div> 10-15</div>
+      <div class="legend-item"><div class="legend-color obs-15"></div> 15-20</div>
+      <div class="legend-item"><div class="legend-color obs-20"></div> 20-30</div>
+      <div class="legend-item"><div class="legend-color obs-30"></div> 30-40</div>
+      <div class="legend-item"><div class="legend-color obs-40"></div> 40-50</div>
+      <div class="legend-item"><div class="legend-color obs-50"></div> 50-80</div>
+      <div class="legend-item"><div class="legend-color obs-80"></div> > 80</div>
     </div>
   </div>
 
 </body>
 </html>
-
 
