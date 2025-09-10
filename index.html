@@ -3,11 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Biodiversité Parc des Écrins</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Mapbox GL JS -->
-  <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
-  <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet" />
-
   <style>
     body { margin: 0; font-family: sans-serif; }
 
@@ -31,9 +26,10 @@
       position: relative;
     }
 
-    #map {
+    iframe {
       width: 100%;
       height: 100%;
+      border: none;
     }
 
     .legend {
@@ -86,10 +82,13 @@
   <div class="subtitle">Observed biodiversity in Écrins National Park in 2024</div>
 
   <div class="map-container">
-    <div id="map"></div>
+    <iframe
+      src="https://api.mapbox.com/styles/v1/oliviachpx/cmf54ebch00ds01se2ykk87jq.html?title=false&access_token=pk.eyJ1Ijoib2xpdmlhY2hweCIsImEiOiJja2dudzdleHYwNHpqMnFudnU2a3ZuOXlwIn0.nkeRTjH5cnbpFHaFSLQd6A&zoomwheel=false#10/44.85/6.35"
+      title="Carte Parc des Écrins">
+    </iframe>
 
     <div class="legend">
-      <div class="legend-title">Nombre d'observations / Number of observations</div>
+      <div class="legend-title">Nombre d'observations/Number of observations</div>
       <div class="legend-item"><div class="legend-color obs-1"></div> 1-2</div>
       <div class="legend-item"><div class="legend-color obs-2"></div> 2-5</div>
       <div class="legend-item"><div class="legend-color obs-5"></div> 5-10</div>
@@ -103,50 +102,6 @@
     </div>
   </div>
 
-  <script>
-    // Clé d'accès publique Mapbox
-    mapboxgl.accessToken = 'pk.eyJ1Ijoib2xpdmlhY2hweCIsImEiOiJja2dudzdleHYwNHpqMnFudnU2a3ZuOXlwIn0.nkeRTjH5cnbpFHaFSLQd6A';
-
-    const map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/oliviachpx/cmf54ebch00ds01se2ykk87jq',
-      center: [6.35, 44.85],
-      zoom: 10
-    });
-
-    map.on('load', () => {
-      // Assure que le calque est prêt pour l'interaction
-      if (map.getLayer('total-nb-obs')) {
-
-        // Clic sur les entités du calque
-        map.on('click', 'total-nb-obs', (e) => {
-          const feature = e.features[0];
-          const props = feature.properties;
-
-          new mapboxgl.Popup()
-            .setLngLat(e.lngLat)
-            .setHTML(`
-              <strong>Observations :</strong> ${props.nb_observations || 'Inconnues'}<br>
-              <strong>Taxon :</strong> ${props.taxon || 'N/A'}<br>
-              <strong>Commune :</strong> ${props.commune || 'N/A'}
-            `)
-            .addTo(map);
-        });
-
-        // Changement du curseur au survol
-        map.on('mouseenter', 'total-nb-obs', () => {
-          map.getCanvas().style.cursor = 'pointer';
-        });
-
-        map.on('mouseleave', 'total-nb-obs', () => {
-          map.getCanvas().style.cursor = '';
-        });
-
-      } else {
-        console.warn("Le calque 'total-nb-obs' n'a pas été trouvé.");
-      }
-    });
-  </script>
-
 </body>
 </html>
+
